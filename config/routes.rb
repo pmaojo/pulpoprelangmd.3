@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+  #->Prelang (voting/acts_as_votable)
+  member do
+    get "vote"
+  end
+end
+
 
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   devise_for :admin_users, ActiveAdmin::Devise.config
